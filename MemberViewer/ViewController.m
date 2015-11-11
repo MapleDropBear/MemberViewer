@@ -10,6 +10,9 @@
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 
+
+
+
 @implementation ViewController
 
 @synthesize tableView = _tableView, activityIndicatorView = _activityIndicatorView, memberData = _memberData, navBar = _navBar;
@@ -21,10 +24,9 @@
   [super viewDidLoad];
  
   // top menu field
-  
   self.navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, 60.0)];
   
-  
+  // record button
   UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Record"
                                                                   style:UIBarButtonItemStyleDone target:self action:@selector(recordButtonPressed:)];
   UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Member Views"];
@@ -133,7 +135,66 @@
 -(IBAction)recordButtonPressed:(UIBarButtonItem*)btn
 {
   NSLog(@"button tapped %@", btn.title);
+  
+  [self startCameraController:self usingDelegate:self];
+  
 }
 
+-(BOOL)startCameraController:(UIViewController*)controller usingDelegate:(id )delegate
+{
+  // check for valid
+  if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO)
+      || (delegate == nil)
+      || (controller == nil)) {
+    return NO;
+  }
+  
+  // get an image picker controller
+  UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
+  cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
+
+  cameraUI.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
+
+  // not caring about edit just want to record.
+  cameraUI.allowsEditing = NO;
+  cameraUI.delegate = delegate;
+  
+  // start the recording device
+  [controller presentViewController:cameraUI animated:YES completion:nil];
+  return YES;
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+  NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
+  [[picker presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+  
+  // Handle a movie capture
+  if (CFStringCompare ((__bridge_retained CFStringRef) mediaType, kUTTypeMovie, 0) == kCFCompareEqualTo)
+  {    
+    NSString *moviePath = (NSString *)[[info objectForKey:UIImagePickerControllerMediaURL] path];
+    
+    if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(moviePath))
+    {
+      UISaveVideoAtPathToSavedPhotosAlbum(moviePath, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+    }
+  }
+}
+
+-(void)video:(NSString*)videoPath didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo
+{
+  if (error)
+  {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Video Saving Failed"
+                                                   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+  }
+  else
+  {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Video Saved" message:@"Saved To Photo Album"
+                                                   delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+  }
+}
 
 @end

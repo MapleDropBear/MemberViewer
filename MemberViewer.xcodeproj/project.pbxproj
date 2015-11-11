@@ -48,6 +48,7 @@
 		6D11BE731BF3B163007C7614 /* profile-87px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile-87px.png"; path = "MemberViewer/resources/profile-87px.png"; sourceTree = "<group>"; };
 		6D11BE741BF3B163007C7614 /* profile-120px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile-120px.png"; path = "MemberViewer/resources/profile-120px.png"; sourceTree = "<group>"; };
 		6D11BE751BF3B163007C7614 /* profile-180px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile-180px.png"; path = "MemberViewer/resources/profile-180px.png"; sourceTree = "<group>"; };
+		6D11BEC81BF3B405007C7614 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		6D12E3651BF38B9E007D2E9C /* MemberViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemberViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D12E3691BF38B9E007D2E9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6D12E36B1BF38B9E007D2E9C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -333,6 +334,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6D12E3721BF38B9E007D2E9C /* Base */,
+				6D11BEC81BF3B405007C7614 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

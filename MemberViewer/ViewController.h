@@ -12,8 +12,10 @@
   UITableView *_tableView;
   UIActivityIndicatorView *_activityIndicatorView;
   NSArray *_memberData;
+  UINavigationBar *_navBar;
 }
 
+@property (nonatomic, retain) UINavigationBar *navBar;
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicatorView;
 @property (nonatomic, retain) NSArray *memberData;

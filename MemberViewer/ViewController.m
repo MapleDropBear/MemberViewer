@@ -12,14 +12,30 @@
 
 @implementation ViewController
 
-@synthesize tableView = _tableView, activityIndicatorView = _activityIndicatorView, memberData = _memberData;
+@synthesize tableView = _tableView, activityIndicatorView = _activityIndicatorView, memberData = _memberData, navBar = _navBar;
+
+
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
  
+  // top menu field
+  
+  self.navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, 60.0)];
+  
+  
+  UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Record"
+                                                                  style:UIBarButtonItemStyleDone target:self action:@selector(recordButtonPressed:)];
+  UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Member Views"];
+  item.rightBarButtonItem = rightButton;
+  item.hidesBackButton = YES;
+  [self.navBar pushNavigationItem:item animated:NO];
+
+  [self.view addSubview:self.navBar];
+  
   // Setup table view
-  self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
+  self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 60.0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -110,7 +126,14 @@
   
   
   return cell;
-  
 }
+
+
+// recording interface called.
+-(IBAction)recordButtonPressed:(UIBarButtonItem*)btn
+{
+  NSLog(@"button tapped %@", btn.title);
+}
+
 
 @end

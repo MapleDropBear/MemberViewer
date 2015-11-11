@@ -10,7 +10,9 @@
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 
-
+// info about the controller
+// So I went with a single view controller just becuase of the time constraints of the test and simplicity of the requests.
+// I also programatically generated the layout just for speed and to show that I know how to when nessesary.
 
 
 @implementation ViewController
@@ -65,7 +67,8 @@
   op.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/vnd.api+json", nil];
   [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
   {
-    NSLog(@"JSON: %@", responseObject);
+    // Log for output. Disabled.
+    //NSLog(@"JSON: %@", responseObject);
    
     // populate data.
     self.memberData = responseObject;
@@ -134,10 +137,7 @@
 // recording interface called.
 -(IBAction)recordButtonPressed:(UIBarButtonItem*)btn
 {
-  NSLog(@"button tapped %@", btn.title);
-  
   [self startCameraController:self usingDelegate:self];
-  
 }
 
 -(BOOL)startCameraController:(UIViewController*)controller usingDelegate:(id )delegate
@@ -145,7 +145,8 @@
   // check for valid
   if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO)
       || (delegate == nil)
-      || (controller == nil)) {
+      || (controller == nil))
+  {
     return NO;
   }
   
@@ -164,6 +165,7 @@
   return YES;
 }
 
+// using image picker controller to save the movie to drive
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
   NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
@@ -181,6 +183,8 @@
   }
 }
 
+
+// Return from saving attempt
 -(void)video:(NSString*)videoPath didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo
 {
   if (error)

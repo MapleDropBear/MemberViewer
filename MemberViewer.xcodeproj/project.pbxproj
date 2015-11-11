@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6D11BE681BF3A52C007C7614 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D11BE671BF3A52C007C7614 /* placeholder.png */; };
+		6D11BE761BF3B163007C7614 /* profile-58px.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D11BE711BF3B163007C7614 /* profile-58px.png */; };
+		6D11BE771BF3B163007C7614 /* profile-80px.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D11BE721BF3B163007C7614 /* profile-80px.png */; };
+		6D11BE781BF3B163007C7614 /* profile-87px.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D11BE731BF3B163007C7614 /* profile-87px.png */; };
+		6D11BE791BF3B163007C7614 /* profile-120px.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D11BE741BF3B163007C7614 /* profile-120px.png */; };
+		6D11BE7A1BF3B163007C7614 /* profile-180px.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D11BE751BF3B163007C7614 /* profile-180px.png */; };
 		6D12E36A1BF38B9E007D2E9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D12E3691BF38B9E007D2E9C /* main.m */; };
 		6D12E36D1BF38B9E007D2E9C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D12E36C1BF38B9E007D2E9C /* AppDelegate.m */; };
 		6D12E3701BF38B9E007D2E9C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D12E36F1BF38B9E007D2E9C /* ViewController.m */; };
@@ -38,6 +43,11 @@
 
 /* Begin PBXFileReference section */
 		6D11BE671BF3A52C007C7614 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = MemberViewer/resources/placeholder.png; sourceTree = "<group>"; };
+		6D11BE711BF3B163007C7614 /* profile-58px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile-58px.png"; path = "MemberViewer/resources/profile-58px.png"; sourceTree = "<group>"; };
+		6D11BE721BF3B163007C7614 /* profile-80px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile-80px.png"; path = "MemberViewer/resources/profile-80px.png"; sourceTree = "<group>"; };
+		6D11BE731BF3B163007C7614 /* profile-87px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile-87px.png"; path = "MemberViewer/resources/profile-87px.png"; sourceTree = "<group>"; };
+		6D11BE741BF3B163007C7614 /* profile-120px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile-120px.png"; path = "MemberViewer/resources/profile-120px.png"; sourceTree = "<group>"; };
+		6D11BE751BF3B163007C7614 /* profile-180px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile-180px.png"; path = "MemberViewer/resources/profile-180px.png"; sourceTree = "<group>"; };
 		6D12E3651BF38B9E007D2E9C /* MemberViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemberViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D12E3691BF38B9E007D2E9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6D12E36B1BF38B9E007D2E9C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +118,11 @@
 		6D11BE661BF3A50A007C7614 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6D11BE711BF3B163007C7614 /* profile-58px.png */,
+				6D11BE721BF3B163007C7614 /* profile-80px.png */,
+				6D11BE731BF3B163007C7614 /* profile-87px.png */,
+				6D11BE741BF3B163007C7614 /* profile-120px.png */,
+				6D11BE751BF3B163007C7614 /* profile-180px.png */,
 				6D11BE671BF3A52C007C7614 /* placeholder.png */,
 			);
 			name = Resources;
@@ -269,8 +284,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D11BE761BF3B163007C7614 /* profile-58px.png in Resources */,
+				6D11BE7A1BF3B163007C7614 /* profile-180px.png in Resources */,
 				6D12E3781BF38B9E007D2E9C /* LaunchScreen.storyboard in Resources */,
 				6D11BE681BF3A52C007C7614 /* placeholder.png in Resources */,
+				6D11BE781BF3B163007C7614 /* profile-87px.png in Resources */,
+				6D11BE771BF3B163007C7614 /* profile-80px.png in Resources */,
+				6D11BE791BF3B163007C7614 /* profile-120px.png in Resources */,
 				6D12E3751BF38B9E007D2E9C /* Assets.xcassets in Resources */,
 				6D12E3731BF38B9E007D2E9C /* Main.storyboard in Resources */,
 			);

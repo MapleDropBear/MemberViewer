@@ -12,7 +12,7 @@
 
 // info about the controller
 // So I went with a single view controller just becuase of the time constraints of the test and simplicity of the requests.
-// I also programatically generated the layout just for speed and to show that I know how to when nessesary.
+// I also programatically generated the layout just for speed and to show that I know how to when nessesary in prototyping, etc.
 
 
 @implementation ViewController
@@ -24,7 +24,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
- 
+  
   // top menu field
   self.navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, 60.0)];
   
@@ -35,7 +35,7 @@
   item.rightBarButtonItem = rightButton;
   item.hidesBackButton = YES;
   [self.navBar pushNavigationItem:item animated:NO];
-
+  
   [self.view addSubview:self.navBar];
   
   // Setup table view
@@ -62,23 +62,25 @@
   
   AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
   op.responseSerializer = [AFJSONResponseSerializer serializer];
-
+  
   // needed to set specific content type
   op.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/vnd.api+json", nil];
   [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
-  {
-    // Log for output. Disabled.
-    //NSLog(@"JSON: %@", responseObject);
-   
-    // populate data.
-    self.memberData = responseObject;
-    [self.activityIndicatorView stopAnimating];
-    [self.tableView setHidden:NO];
-    [self.tableView reloadData];
-  } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-  {
-    NSLog(@"Error: %@", error);
-  }];
+   {
+     // Log for output. Disabled.
+     //NSLog(@"JSON: %@", responseObject);
+     
+     // populate data.
+     self.memberData = responseObject;
+     // stop spinner
+     [self.activityIndicatorView stopAnimating];
+     // show table and refresh
+     [self.tableView setHidden:NO];
+     [self.tableView reloadData];
+   } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+   {
+     NSLog(@"Error: %@", error);
+   }];
   
   [[NSOperationQueue mainQueue] addOperation:op];
   
@@ -153,9 +155,9 @@
   // get an image picker controller
   UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
   cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
-
+  
   cameraUI.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
-
+  
   // not caring about edit just want to record.
   cameraUI.allowsEditing = NO;
   cameraUI.delegate = delegate;
@@ -173,7 +175,7 @@
   
   // Handle a movie capture
   if (CFStringCompare ((__bridge_retained CFStringRef) mediaType, kUTTypeMovie, 0) == kCFCompareEqualTo)
-  {    
+  {
     NSString *moviePath = (NSString *)[[info objectForKey:UIImagePickerControllerMediaURL] path];
     
     if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(moviePath))

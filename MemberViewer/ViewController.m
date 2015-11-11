@@ -42,11 +42,14 @@
   
   AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
   op.responseSerializer = [AFJSONResponseSerializer serializer];
+
+  // needed to set specific content type
   op.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/vnd.api+json", nil];
   [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
   {
     NSLog(@"JSON: %@", responseObject);
-    
+   
+    // populate data.
     self.memberData = responseObject;
     [self.activityIndicatorView stopAnimating];
     [self.tableView setHidden:NO];
